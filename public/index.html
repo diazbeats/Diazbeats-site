@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DIAZBEATS</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Instrument+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#050605;--sf:rgba(20,26,23,.72);--fg:#efe9dc;--mut:#98a09a;--line:#26302b;--ac:#e8d3a8;--onac:#14110a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="dark"]{--bg:#0d1110;--sf:#161c19;--fg:#efe9dc;--mut:#98a09a;--line:#26302b;--ac:#e8d3a8;--onac:#14110a}
+*{box-sizing:border-box}html{background:var(--bg);scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:#000 url(bg.jpg) center top/cover no-repeat}
+body{margin:0;background:transparent;color:var(--fg);font:400 16px/1.55 "Instrument Sans",system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Bricolage Grotesque",Impact,sans-serif;margin:0;line-height:.95}
+a{color:inherit}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:12px;font:800 20px "Bricolage Grotesque",sans-serif;text-decoration:none}
+.brand img{width:38px;height:36px;border-radius:2px;background:#fff}
+nav a{color:var(--mut);text-decoration:none;margin-left:18px;font-size:15px}nav a:hover{color:var(--fg)}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.hero{padding:44px 0 52px;border-bottom:1px solid var(--line)}
+.hero h1{font-size:clamp(54px,15vw,140px);font-weight:800;letter-spacing:-.03em}
+.hero p{max-width:32ch;color:var(--mut);font-size:19px;margin:20px 0 26px}
+.btn{display:inline-block;background:var(--ac);color:var(--onac);padding:12px 20px;border-radius:99px;font:600 15px "Instrument Sans",sans-serif;text-decoration:none;border:0;cursor:pointer}
+.btn.ghost{background:none;color:var(--fg);border:1px solid var(--line)}
+section{padding:52px 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(32px,7vw,50px);margin-bottom:22px}
+.tools{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.tools input{flex:1 1 220px;background:var(--sf);border:1px solid var(--line);color:var(--fg);padding:12px 16px;border-radius:99px;font:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{background:none;color:var(--mut);border:1px solid var(--line);padding:8px 14px;border-radius:99px;cursor:pointer;font:inherit;font-size:14px}
+.chips button[aria-pressed=true]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.row{display:grid;grid-template-columns:56px minmax(0,1.6fr) 56px 48px 56px minmax(0,1.2fr) 44px 92px;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.row.head{color:var(--mut);font-size:13px;padding:6px 0}
+.cov{width:56px;height:56px;border-radius:6px}
+.ti{min-width:0}.ti b{display:block;font:800 18px "Bricolage Grotesque",sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ti span{color:var(--mut);font-size:14px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sub{display:none}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tags i{font-style:normal;background:var(--sf);border:1px solid var(--line);border-radius:99px;padding:2px 10px;font-size:13px;color:var(--mut)}
+.row .mut{color:var(--mut);font-size:14px}
+.play{width:44px;height:44px;border-radius:50%;border:1px solid var(--ac);background:none;color:var(--ac);cursor:pointer;font-size:14px}
+.row .btn{padding:9px 0;text-align:center;font-size:14px}
+.empty{color:var(--mut);padding:18px 0}
+.note{color:var(--mut);font-size:14px;margin-top:14px}
+ol.steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;counter-reset:s}
+ol.steps li{counter-increment:s;color:var(--mut)}ol.steps li::before{content:counter(s);display:block;font:800 40px "Bricolage Grotesque",sans-serif;color:var(--ac);margin-bottom:6px}
+ol.steps b{color:var(--fg);display:block;font-size:18px}
+.lic{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.lic div{background:var(--sf);border-radius:10px;padding:22px}
+.lic h3{font-size:30px}.lic .pr{font:800 26px "Bricolage Grotesque",sans-serif;color:var(--ac);margin:8px 0}.lic p{margin:0;color:var(--mut)}.lic ul{margin:12px 0 0;padding-left:18px;color:var(--mut)}.lic li{margin-bottom:4px}
+.about{max-width:56ch;color:var(--mut);font-size:18px}
+dialog{background:#141a17;color:var(--fg);border:1px solid var(--line);border-radius:14px;padding:24px;width:min(420px,calc(100% - 32px))}
+dialog::backdrop{background:rgba(0,0,0,.65)}
+dialog h3{font-size:28px;margin-bottom:4px}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:12px;border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:12px;cursor:pointer}
+.opt:has(input:checked){border-color:var(--ac)}
+.opt small{display:block;color:var(--mut)}
+.msg{color:#e8a08a;font-size:14px;min-height:20px;margin:12px 0 0}
+.acts{display:flex;gap:10px;margin-top:14px}.acts .btn{flex:1;text-align:center}
+details{border-top:1px solid var(--line);padding:14px 0}details:last-of-type{border-bottom:1px solid var(--line)}summary{cursor:pointer;font:800 20px "Bricolage Grotesque",sans-serif}details p,details ul{color:var(--mut);max-width:70ch}details b{color:var(--fg)}.ck{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:14px;color:var(--mut)}.ck input{margin-top:4px;flex:none}
+.cf{display:grid;gap:12px;max-width:520px}.cf input,.cf textarea{background:var(--sf);border:1px solid var(--line);color:var(--fg);padding:13px 16px;border-radius:12px;font:inherit;width:100%}.cf textarea{resize:vertical}
+footer{padding:34px 0;color:var(--mut);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:720px){.row{grid-template-columns:56px minmax(0,1fr) 44px 84px}.row.head,.row .dur,.row .bpm,.row .key,.row .tags{display:none}.sub{display:block!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+<div class="wrap">
+<header><a class="brand" href="#"><img alt="" src="logo.png">DIAZBEATS</a>
+<nav><a href="#prods">Prods</a><a href="#licences">Licences</a><a href="#contact">Contact</a></nav></header>
+<div class="hero"><h1>DIAZBEATS</h1><p>Prods tristes, trap, new wave et drill, dans un univers à découvrir.</p>
+<a class="btn" href="#prods">Écouter les prods</a> <a class="btn ghost" href="#licences">Voir les licences</a></div>
+
+<section id="prods"><h2>Prods</h2>
+<div class="tools"><input id="q" type="search" placeholder="Rechercher une instru" aria-label="Rechercher une instru"><div class="chips" id="f" role="group" aria-label="Filtrer par style"></div></div>
+<div class="row head"><span></span><span>Titre</span><span>Durée</span><span>BPM</span><span>Key</span><span>Tags</span><span></span><span></span></div>
+<div id="g"></div>
+<p class="note">Écoute un extrait de 30 secondes, puis achète la prod complète.</p></section>
+
+<section id="comment"><h2>Comment acheter</h2>
+<ol class="steps"><li><b>Écoute</b>Lance l’extrait de la prod qui te plaît.</li><li><b>Choisis</b>Prends la licence MP3 ou WAV.</li><li><b>Télécharge</b>Paie par carte, puis récupère ton fichier tout de suite.</li></ol></section>
+
+<section id="licences"><h2>Licences</h2>
+<div class="lic"><div><h3>MP3</h3><div class="pr">$15</div><ul><li>Fichier MP3</li><li>Jusqu’à 250 000 streams</li><li>Diffusion sur les plateformes d’écoute</li><li>Tu peux gagner de l’argent avec ta musique</li><li>Crédit obligatoire : Prod. by DIAZBEATS</li></ul></div>
+<div><h3>WAV</h3><div class="pr">$25</div><ul><li>Fichier WAV, qualité studio</li><li>Streams illimités</li><li>Diffusion sur les plateformes d’écoute</li><li>Tu peux gagner de l’argent avec ta musique</li><li>Crédit obligatoire : Prod. by DIAZBEATS</li></ul></div></div>
+<p class="note">Mets « Prod. by DIAZBEATS » dans le titre ou la description de ta sortie.</p></section>
+
+<section id="contact" style="border:0"><h2>Contact</h2>
+<p class="about" style="margin-bottom:20px">Collaboration, prod sur mesure ou question sur une licence : écris-moi ici.</p>
+<form id="cf" class="cf" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="contact">
+<p hidden><label>Ne pas remplir <input name="bot-field"></label></p>
+<input name="nom" placeholder="Ton nom" aria-label="Ton nom" required>
+<input name="email" type="email" placeholder="Ton e-mail" aria-label="Ton e-mail" required>
+<textarea name="message" rows="5" placeholder="Ton message" aria-label="Ton message" required></textarea>
+<div><button class="btn" type="submit">Envoyer</button></div>
+<p class="msg" id="cm" role="status" style="color:var(--fg)"></p></form>
+<p class="note">Tu peux aussi écrire sur <a href="https://www.instagram.com/diaz_beatss" target="_blank" rel="noopener">Instagram</a> ou <a href="https://www.youtube.com/@Diaz_beats" target="_blank" rel="noopener">YouTube</a>.</p></section>
+<section id="conditions" style="border:0;padding-top:0"><h2 style="font-size:32px">Conditions</h2>
+<details><summary>Conditions de vente</summary>
+<p><b>Produits.</b> Fichiers audio numériques (MP3 ou WAV) de prods, à télécharger. Prix en dollars américains. [TVA non applicable, art. 293 B du CGI, si le vendeur est en franchise en base.]</p>
+<p><b>Commande et paiement.</b> Le paiement se fait par carte, sur la page sécurisée de Stripe. Le vendeur ne voit jamais les numéros de carte. Après le paiement, un lien de téléchargement apparaît tout de suite. Il reste valable une heure : en cas de problème, écris-nous via le formulaire de contact.</p>
+<p><b>Droit de rétractation.</b> En principe, un consommateur a 14 jours pour se rétracter. Pour un fichier numérique téléchargé tout de suite, ce droit est perdu si l’acheteur demande expressément le téléchargement immédiat et y renonce. C’est la case à cocher avant le paiement.</p>
+<p><b>Fichier défectueux.</b> Si le fichier ne s’ouvre pas ou ne correspond pas à la prod achetée, écris-nous : il sera remplacé ou remboursé.</p>
+<p><b>Médiation.</b> En cas de litige, le client peut recourir gratuitement au médiateur de la consommation : [nom et coordonnées du médiateur].</p>
+<p><b>Droit applicable.</b> Droit français.</p></details>
+<details><summary>Licences d’utilisation</summary>
+<p>L’achat donne une licence <b>non exclusive</b>, personnelle et non transférable : la prod reste la propriété de DIAZBEATS et peut être vendue à d’autres artistes.</p>
+<ul><li><b>MP3 (15 $) :</b> jusqu’à 250 000 streams cumulés. Au-delà, il faut prendre la licence WAV.</li>
+<li><b>WAV (25 $) :</b> streams illimités.</li></ul>
+<p>Avec les deux licences, tu peux enregistrer une chanson sur la prod, la diffuser sur les plateformes d’écoute et gagner de l’argent avec elle.</p>
+<p><b>Crédit obligatoire :</b> écris « Prod. by DIAZBEATS » dans le titre ou la description de ta sortie.</p>
+<p><b>Interdit :</b> revendre, partager ou redistribuer le fichier de la prod seule. Les autres usages (publicité, film, radio, télévision) demandent l’accord écrit du vendeur.</p></details>
+<details><summary>Mentions légales</summary>
+<p><b>Éditeur du site :</b> [prénom et nom], [statut et numéro SIRET], [adresse], [e-mail].</p>
+<p><b>Hébergeur :</b> Netlify, Inc., San Francisco, États-Unis (coordonnées complètes sur netlify.com).</p></details>
+<details><summary>Données personnelles</summary>
+<p>Le formulaire de contact recueille ton nom, ton e-mail et ton message, uniquement pour te répondre. Le paiement est traité par Stripe, qui garde les données de carte. Tu peux demander l’accès, la correction ou la suppression de tes données en écrivant à [e-mail].</p></details>
+<p class="note">Dernière mise à jour : novembre 2026.</p></section>
+<footer><span>© 2026 DIAZBEATS</span><a href="#conditions">Conditions et mentions légales</a></footer></div>
+
+<dialog id="dlg"><h3 id="dt"></h3><div style="color:var(--mut)">Choisis ta licence</div>
+<label class="opt"><span><b>MP3</b><small>Fichier MP3, 250 000 streams</small></span><span>$15 <input type="radio" name="lic" value="mp3" checked></span></label>
+<label class="opt"><span><b>WAV</b><small>Fichier WAV, streams illimités</small></span><span>$25 <input type="radio" name="lic" value="wav"></span></label>
+<label class="ck"><input type="checkbox" id="ok"><span>Je veux télécharger tout de suite et je renonce à mon droit de rétractation de 14 jours. J’accepte les <a href="#conditions" id="tl">conditions de vente et la licence</a>.</span></label>
+<p class="msg" id="msg" role="status"></p>
+<div class="acts"><button class="btn ghost" id="x">Annuler</button><button class="btn" id="pay">Payer par carte</button></div></dialog>
+
+<script>
+let beats=[];
+const $=id=>document.getElementById(id),esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let styles=["Tous"];let cur="Tous",playing=null,pick=null;
+const au=new Audio();au.onended=()=>{playing=null;paint()};
+function paint(){document.querySelectorAll(".play").forEach(b=>b.textContent=b.dataset.id===playing?"❚❚":"▶")}
+function render(){
+ $("f").innerHTML="";styles.forEach(s=>{const b=document.createElement("button");b.textContent=s;b.setAttribute("aria-pressed",s===cur);b.onclick=()=>{cur=s;render()};$("f").appendChild(b)});
+ const q=$("q").value.trim().toLowerCase();
+ const l=beats.filter(b=>(cur==="Tous"||b.s===cur)&&(!q||(b.t+" "+b.r+" "+b.tags.join(" ")).toLowerCase().includes(q)));
+ $("g").innerHTML=l.length?l.map(b=>`<div class="row"><div class="cov" style="background:url('${esc(b.cover)}') center/cover,linear-gradient(135deg,#222,#777)"></div><div class="ti"><b>${esc(b.t)}</b><span>${esc(b.r)}</span><span class="sub">${b.d}${b.bpm?" · "+b.bpm+" BPM":""}${b.key?" · "+b.key:""}</span></div><span class="mut dur">${b.d}</span><span class="mut bpm">${b.bpm||"—"}</span><span class="mut key">${b.key||"—"}</span><div class="tags">${b.tags.map(t=>`<i>${esc(t)}</i>`).join("")}</div><button class="play" data-id="${b.id}" aria-label="Écouter ${esc(b.t)}">▶</button><button class="btn buy" data-id="${b.id}">Acheter</button></div>`).join(""):'<p class="empty">Aucune prod ne correspond à ta recherche.</p>';
+ document.querySelectorAll(".play").forEach(b=>b.onclick=()=>{const id=b.dataset.id;if(playing===id){au.pause();playing=null}else{au.src=beats.find(x=>x.id===id).preview;au.play().catch(()=>{});playing=id}paint()});
+ document.querySelectorAll(".buy").forEach(b=>b.onclick=()=>{pick=beats.find(x=>x.id===b.dataset.id);$("dt").textContent=pick.t;$("msg").textContent="";$("ok").checked=false;$("pay").disabled=false;$("dlg").showModal()});
+ paint();
+}
+$("q").oninput=()=>{au.pause();playing=null;render()};
+$("tl").onclick=()=>$("dlg").close();
+$("x").onclick=()=>$("dlg").close();
+$("pay").onclick=async()=>{
+ if(!$("ok").checked){$("msg").textContent="Coche la case pour continuer.";return}
+ const lic=document.querySelector('input[name=lic]:checked').value;$("pay").disabled=true;$("msg").textContent="Redirection vers le paiement…";
+ try{const r=await fetch("/api/checkout",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({beat:pick.id,license:lic,consent:true})});
+  const d=await r.json();if(!r.ok||!d.url)throw 0;location.href=d.url}
+ catch(e){$("msg").textContent="Le paiement n’est pas encore activé sur cette version du site.";$("pay").disabled=false}};
+$("cf").onsubmit=async e=>{e.preventDefault();const f=e.target,m=$("cm");m.textContent="Envoi…";
+ try{const r=await fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(new FormData(f)).toString()});
+  if(!r.ok)throw 0;f.reset();m.textContent="Message envoyé, merci !"}
+ catch(x){m.textContent="L’envoi n’est pas encore activé sur cette version du site."}};
+fetch("beats.json",{cache:"no-store"}).then(r=>r.json()).then(d=>{beats=d;styles=["Tous",...new Set(beats.map(b=>b.s))];render()}).catch(()=>{$("g").innerHTML='<p class="empty">Impossible de charger les prods.</p>'});
+</script></body></html>
