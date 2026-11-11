@@ -1,5 +1,20 @@
 [
  {
+  "id": "amidala",
+  "t": "AMIDALA",
+  "s": "Trap",
+  "r": "Cherry pie X Yzaa type beat",
+  "d": "2:32",
+  "bpm": 120,
+  "key": "Cm",
+  "tags": [
+   "trap",
+   "sad"
+  ],
+  "preview": "previews/amidala.wav",
+  "cover": "covers/amidala.jpg"
+ },
+ {
   "id": "scuderia",
   "t": "Scuderia",
   "s": "Trap",
