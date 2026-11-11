@@ -1,0 +1,77 @@
+[
+ {
+  "id": "vandale",
+  "t": "Vandale",
+  "s": "2step",
+  "r": "Ziak type beat",
+  "d": "3:03",
+  "bpm": 138,
+  "key": "Em",
+  "tags": [
+   "2step",
+   "sad"
+  ],
+  "preview": "previews/vandale.wav",
+  "cover": "covers/vandale.jpg"
+ },
+ {
+  "id": "amidala",
+  "t": "AMIDALA",
+  "s": "Trap",
+  "r": "Cherry pie X Yzaa type beat",
+  "d": "2:32",
+  "bpm": 120,
+  "key": "Cm",
+  "tags": [
+   "trap",
+   "sad"
+  ],
+  "preview": "previews/amidala.wav",
+  "cover": "covers/amidala.jpg"
+ },
+ {
+  "id": "scuderia",
+  "t": "Scuderia",
+  "s": "Trap",
+  "r": "TH x Freeze Corleone type beat",
+  "d": "3:01",
+  "bpm": 127,
+  "key": "Gm",
+  "tags": [
+   "trap",
+   "bounce"
+  ],
+  "preview": "previews/scuderia.mp3",
+  "cover": "covers/scuderia.jpg"
+ },
+ {
+  "id": "creeper",
+  "t": "Creeper",
+  "s": "New wave",
+  "r": "Jolagreen23 type beat",
+  "d": "2:26",
+  "bpm": 145,
+  "key": "F#m",
+  "tags": [
+   "new wave",
+   "trap"
+  ],
+  "preview": "previews/creeper.mp3",
+  "cover": "covers/creeper.jpg"
+ },
+ {
+  "id": "no-mans-land",
+  "t": "No Man’s Land",
+  "s": "Trap",
+  "r": "BeatBattle type beat",
+  "d": "2:26",
+  "bpm": 171,
+  "key": "Bm",
+  "tags": [
+   "trap",
+   "dark"
+  ],
+  "preview": "previews/no-mans-land.mp3",
+  "cover": "covers/no-mans-land.jpg"
+ }
+]
